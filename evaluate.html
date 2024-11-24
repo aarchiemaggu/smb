@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bids Evaluation for {{ product_name }}</title>
+</head>
+<body>
+    <h1>Bids Evaluation for {{ product_name }}</h1>
+
+    <h2>Bids Table</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Producer Name</th>
+                <th>Bid Price</th>
+                <th>Quality Score</th>
+                <th>Prediction</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bid in bids %}
+                <tr>
+                    <td>{{ bid['producer_name'] }}</td>
+                    <td>{{ bid['bid_price'] }}</td>
+                    <td>{{ bid['quality_score'] }}</td>
+                    <td>{{ bid['prediction'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Best Bid</h2>
+    <p>The best bid is made by: {{ best_bid['producer_name'] }} with a bid price of {{ best_bid['bid_price'] }} and a quality score of {{ best_bid['quality_score'] }}.</p>
+</body>
+</html>
